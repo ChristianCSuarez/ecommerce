@@ -1,9 +1,11 @@
+import Layout from "../../Components/Layout"
+
 function SignIn() {
   
     return (
-      <div className='bg-gray-600'>
+      <Layout>
         SignIn
-      </div>
+      </Layout>
     )
   }
   
