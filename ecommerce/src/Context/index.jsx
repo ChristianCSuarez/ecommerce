@@ -13,7 +13,12 @@ export const ShoppingCardProvider = ({children}) => {
     const closeProductDetail = () => setIsProductDetailOpen(false)
 
     //Product Detail - Show Content
-    const [productToShow, setProductToShow ] = useState({})
+    const [productToShow, setProductToShow ] = useState({
+        title: "",
+        price: "",
+        description: "",
+        images: [],
+    })
 
     return (
         <ShoppingCardContext.Provider value={{
