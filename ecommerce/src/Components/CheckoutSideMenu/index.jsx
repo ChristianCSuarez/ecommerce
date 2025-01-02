@@ -1,6 +1,7 @@
 import { useContext } from 'react'
 import { XMarkIcon } from '@heroicons/react/24/solid'
 import {ShoppingCardContext} from '../../Context'
+import OrderCard from '../../Components/OrderCard'
 import './styles.css'
 
 const CheckoutSideMenu = () => {
@@ -19,6 +20,20 @@ const CheckoutSideMenu = () => {
                         ></XMarkIcon>
                 </div>
             </div>
+            <div className='px-4 overflow-y-scroll'>
+            {
+                context.cartProducts.map(product => (
+                    <OrderCard 
+                        key = {product.id}
+                        title = {product.title}
+                        imageUrl = {product.images}
+                        price = {product.price}
+
+                    />
+                ))
+            }
+            </div>
+            
         </aside>
     )
 }
