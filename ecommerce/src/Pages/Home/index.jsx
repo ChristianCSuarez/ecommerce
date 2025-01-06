@@ -8,6 +8,20 @@ function Home() {
 
     const context = useContext(ShoppingCardContext)
 
+    const renderView = () => {
+      if (context.filteredItems?.length > 0) {
+          return (
+            context.filteredItems?.map(item => ( 
+              <Card key={item.id} data={item}/>
+           ))
+          )
+        } else {
+          return (
+            <div>We don't have anything</div>
+          )
+        }
+      }
+
     return (
       <Layout>
         <div className="flex items-center justify-center relative w-80 mb-4">
@@ -20,11 +34,7 @@ function Home() {
           onChange={(event) => context.setSearchByTitle(event.target.value)}
           />
         <div className="grid gap-4 grid-cols-3 w-full max-w-screen-lg">
-        {
-          context.items?.map(item => ( 
-             <Card key={item.id} data={item}/>
-          ))
-        }
+        {renderView()}
         </div>
         <ProductDetail />
       </Layout>
